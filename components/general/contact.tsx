@@ -75,7 +75,7 @@ export function Contact() {
                 <span className="font-mono">Connect via linkedin</span>
               </Link>
 
-              <Link
+              <a
                 className={cn(
                   buttonVariants({ size: "lg", variant: "secondary" }),
                   "w-full"
@@ -84,7 +84,7 @@ export function Contact() {
               >
                 <Mail className="text-primary" />
                 <span className="font-mono">Send me an email</span>
-              </Link>
+              </a>
 
               <Link
                 className={cn(
