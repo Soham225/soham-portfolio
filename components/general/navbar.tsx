@@ -68,7 +68,7 @@ export function NavBar() {
         </div>
 
         <Link
-          href={"/"}
+          href={"/view-resume"}
           className={cn(
             buttonVariants({ variant: "secondary" }),
             "font-semibold font-mono"
