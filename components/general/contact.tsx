@@ -81,6 +81,7 @@ export function Contact() {
                   "w-full"
                 )}
                 href="mailto:sohamdutta225@gmail.com"
+                target="_blank"
               >
                 <Mail className="text-primary" />
                 <span className="font-mono">Send me an email</span>
