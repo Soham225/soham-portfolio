@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import SAAS_Image from "@/public/saas.png";
 import { Separator } from "../ui/separator";
-import Lab from "@/public/lab.png";
+import axon from "@/public/axon.png";
 import { FolderKanban, GithubIcon, Rss } from "lucide-react";
 import FileAnalyzer from "@/public/fileanalyzer.png";
 import { buttonVariants } from "../ui/button";
@@ -84,26 +84,22 @@ export function MyProjects() {
               </div>
             </div>
           </Link>
-          <Link
-            href={
-              "https://soham-lab-git-main-soham-duttas-projects-2bb0f675.vercel.app/"
-            }
-          >
+          <Link href={"https://axon-roan.vercel.app"}>
             <div className="flex flex-col max-w-md w-full hover:shadow-lg transition-all duration-300 hover:border-primary border rounded-lg">
               <Image
-                src={Lab}
+                src={axon}
                 alt="2nd project"
                 height={300}
                 className="w-auto rounded-t-lg"
               />
               <div className="p-2 space-y-1">
                 <h1 className="text-center font-sans font-semibold ">
-                  <span className="text-primary">AI Powered</span> Lab Report
-                  Analyzer
+                  <span className="text-primary">AXON</span> (AI Powered
+                  Ticketing System)
                 </h1>
                 <p className="text-muted-foreground font-semibold text-balance text-center">
                   Next js ** Prisma ** Neon ** Tailwind CSS ** ShadCn UI **
-                  Gemini ** LangChain ** ...
+                  Gemini ** Inngest ** Better Auth ...
                 </p>
               </div>
               <div className="flex justify-around items-center p-2 space-y-1">
