@@ -22,10 +22,13 @@ import { Separator } from "../ui/separator";
 export function NavBar() {
   return (
     <nav className="flex items-center justify-between">
-      <h1 className=" text-3xl font-bold flex items-center justify-center gap-2">
-        <div className="rounded-full p-2 bg-card text-primary border border-border">
-          <Code2 size={25} />
+      <h1 className=" text-3xl font-bold flex items-center justify-center gap-2 ">
+        <div className="rounded-full p-2 bg-card text-primary border border-primary">
+          <Code2 size={20} />
         </div>
+        <span className="font-semibold  font-sans text-xl sm:text-2xl underline underline-offset-8 ">
+          SOHAM
+        </span>
       </h1>
       <div className=" flex items-center gap-6  px-4 py-2 rounded-lg ">
         <div className="hidden  md:flex">
@@ -33,7 +36,7 @@ export function NavBar() {
             href={"#about"}
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "font-semibold font-mono"
+              "font-semibold font-mono",
             )}
           >
             About
@@ -42,7 +45,7 @@ export function NavBar() {
             href={"#projects"}
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "font-semibold font-mono"
+              "font-semibold font-mono",
             )}
           >
             Projects
@@ -51,7 +54,7 @@ export function NavBar() {
             href={"#certificate"}
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "font-semibold font-mono"
+              "font-semibold font-mono",
             )}
           >
             Certifications
@@ -60,22 +63,23 @@ export function NavBar() {
             href={"#contact"}
             className={cn(
               buttonVariants({ variant: "ghost" }),
-              "font-semibold font-mono"
+              "font-semibold font-mono",
             )}
           >
             Contact
           </Link>
         </div>
 
-        <Link
-          href={"/view-resume"}
-          className={cn(
-            buttonVariants({ variant: "secondary" }),
-            "font-semibold font-mono"
-          )}
-        >
-          Resume
-        </Link>
+        <div className="relative inline-block rounded-xl overflow-hidden p-[1.5px] border ">
+          <div className="absolute inset-0 animate-[spin_5s_linear_infinite] bg-conic from-primary via-transparent via-transparent to-primary" />
+
+          <Link
+            href="/view-resume"
+            className="relative flex items-center rounded-xl bg-background px-7 py-2 font-mono font-semibold"
+          >
+            Resume
+          </Link>
+        </div>
         <ThemeToggle />
         <div className="md:hidden">
           <DropdownMenu>

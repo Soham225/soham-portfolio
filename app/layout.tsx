@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Soham Portfolio",
+  title: "soham.dev",
   description: "portfolio app - Soham Dutta",
 };
 
