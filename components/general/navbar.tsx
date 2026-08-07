@@ -21,12 +21,12 @@ import { Separator } from "../ui/separator";
 
 export function NavBar() {
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="flex items-center justify-between pb-2 border-b border-b-primary/10 sticky top-0 z-50 bg-background">
       <h1 className=" text-3xl font-bold flex items-center justify-center gap-2 ">
         <div className="rounded-full p-2 bg-card text-primary border border-primary">
           <Code2 size={20} />
         </div>
-        <span className="font-semibold  font-sans text-xl sm:text-2xl underline underline-offset-8 ">
+        <span className="font-semibold  font-sans text-[1rem] sm:text-2xl underline underline-offset-8 ">
           SOHAM
         </span>
       </h1>
@@ -75,7 +75,7 @@ export function NavBar() {
 
           <Link
             href="/view-resume"
-            className="relative flex items-center rounded-xl bg-background px-7 py-2 font-mono font-semibold"
+            className="relative text-sm flex items-center rounded-xl bg-background p-2 sm:px-7 py-2 font-mono font-semibold"
           >
             Resume
           </Link>

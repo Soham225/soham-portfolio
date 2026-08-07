@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 space-y-4">
       {/* Left column – all content */}
-      <div className="flex flex-col justify-center sm:pt-8 space-y-6 ml-4">
+      <div className="flex flex-col justify-center space-y-6 ml-4">
         {/* Title & badge */}
         <div className="space-y-4">
           <p className="text-xl font-semibold font-mono">
@@ -37,7 +37,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* About section */}
         <div className="leading-relaxed space-y-6">
           <p className="text-balance text-2xl font-mono tracking-tight font-medium sm:py-4">
             Passionate about building modern, scalable web applications, with
@@ -47,20 +46,20 @@ export function Hero() {
             continue growing as a developer.
           </p>
           {/* Buttons – hidden on small screens (unchanged) */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center gap-6">
             <Link
               className={cn(buttonVariants(), "size-sm md:size-lg")}
               href="#projects"
             >
               <Folder />
-              Explore My Work
+              Explore <span className="hidden sm:inline">My Work</span>
             </Link>
             <Link
               className={cn(buttonVariants(), "size-sm md:size-lg")}
               href="#contact"
             >
               <ContactIcon />
-              Connect With Me
+              Connect <span className="hidden sm:inline">With Me</span>
             </Link>
           </div>
         </div>
@@ -94,12 +93,11 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Right column – full‑height image */}
-      <div className="relative sm:mt-6 sm:ml-6 sm:px-20">
+      <div className="flex justify-center mt-2 sm:mt-12">
         <Image
           src={MyImage}
           alt="Soham Dutta"
-          className="object-cover w-full h-96 sm:h-125 rounded-2xl"
+          className="sm:w-[70%] sm:h-[80%] rounded-2xl object-cover"
           priority
         />
       </div>

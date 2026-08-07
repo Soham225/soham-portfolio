@@ -12,7 +12,7 @@ import { CircleUserRound } from "lucide-react";
 
 export function About() {
   return (
-    <Card className="bg-transparent  border hover:border-primary transition-all duration-300 mt-4">
+    <Card className="bg-transparent  border hover:border-primary transition-all duration-300 mt-2 sm:mt-4">
       <CardHeader>
         <CardTitle className="text-3xl font-sans font-bold text-primary ">
           <span>About Myself</span>
