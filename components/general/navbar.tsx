@@ -21,7 +21,7 @@ import { Separator } from "../ui/separator";
 
 export function NavBar() {
   return (
-    <nav className="flex items-center justify-between pb-2 border-b border-b-primary/10 sticky top-0 z-50 bg-background">
+    <nav className="flex items-center justify-between pb-2 border-b border-b-primary/20 sticky top-0 z-50 bg-background">
       <h1 className=" text-3xl font-bold flex items-center justify-center gap-2 ">
         <div className="rounded-full p-2 bg-card text-primary border border-primary">
           <Code2 size={20} />

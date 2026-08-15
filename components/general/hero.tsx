@@ -93,7 +93,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-2 sm:mt-12">
+      <div className="flex justify-center mt-2 sm:mt-12 p-4">
         <Image
           src={MyImage}
           alt="Soham Dutta"
