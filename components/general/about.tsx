@@ -29,12 +29,12 @@ export function About() {
             <p className="text-balance text-2xl font-mono tracking-tight font-medium">
               My name is Soham. I’m interested in full-stack web development and
               enjoy building real-world web applications using modern tools and
-              workflows. I primarily work with Next.js, Prisma, Neon and have
-              experience developing scalable features such as authentication,
-              background jobs, and secure FullStack web apps. I focus on
-              building complete products end-to-end and I’m actively looking for
-              opportunities where I can contribute, learn and grow as a
-              full-stack developer.
+              workflows. I primarily work with Next.js, React.js, Prisma, Neon
+              and have experience developing scalable features such as
+              authentication, background jobs, and secure FullStack web apps. I
+              focus on building complete products end-to-end and I’m actively
+              looking for opportunities where I can contribute, learn and grow
+              as a full-stack developer.
             </p>
           </div>
           <div className="flex justify-center items-center">
