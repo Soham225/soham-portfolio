@@ -17,6 +17,39 @@ export function NextJsLogo() {
   );
 }
 
+export function ReactLogo() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="50"
+      height="50"
+      viewBox="0 0 256 256"
+    >
+      <g fill="none">
+        <circle cx="128" cy="128" r="24" fill="#61DAFB" />
+
+        <g stroke="#61DAFB" strokeWidth="10" fill="none">
+          <ellipse cx="128" cy="128" rx="110" ry="42" />
+          <ellipse
+            cx="128"
+            cy="128"
+            rx="110"
+            ry="42"
+            transform="rotate(60 128 128)"
+          />
+          <ellipse
+            cx="128"
+            cy="128"
+            rx="110"
+            ry="42"
+            transform="rotate(120 128 128)"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
 export function ShadcnLogo() {
   return (
     <svg

@@ -331,11 +331,11 @@ export function Hero() {
             <p
               className="
                 font-mono
-                text-sm
+                
                 leading-7
                 tracking-[-0.01em]
-                text-foreground/75
-                sm:text-[15px]
+                
+               text-xl
                 sm:leading-8
               "
             >
