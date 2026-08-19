@@ -110,7 +110,8 @@ export function Contact() {
         "
       />
 
-      <motion.div
+      {/* Static ambient glow - cheaper than continuous animation */}
+      <div
         className="
           pointer-events-none
           absolute
@@ -122,19 +123,9 @@ export function Contact() {
           bg-primary/[0.07]
           blur-[100px]
         "
-        animate={{
-          x: [0, -40, 0],
-          y: [0, 35, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
       />
 
-      <motion.div
+      <div
         className="
           pointer-events-none
           absolute
@@ -146,15 +137,6 @@ export function Contact() {
           bg-primary/[0.05]
           blur-[100px]
         "
-        animate={{
-          x: [0, 50, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
       />
 
       {/* ============================================================
@@ -189,7 +171,10 @@ export function Contact() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{
+              duration: 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="
               relative
               overflow-hidden
@@ -227,41 +212,42 @@ export function Contact() {
                     transition={{
                       duration: 0.4,
                       delay: index * 0.06,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                     whileHover={{ x: 4 }}
                     className="
-                        group
-                        flex
-                        items-center
-                        gap-4
-                        rounded-xl
-                        border
-                        border-transparent
-                        p-3
-                        transition-all
-                        duration-300
-                        hover:border-primary/20
-                        hover:bg-primary/[0.04]
-                      "
+                      group
+                      flex
+                      items-center
+                      gap-4
+                      rounded-xl
+                      border
+                      border-transparent
+                      p-3
+                      transition-all
+                      duration-300
+                      hover:border-primary/20
+                      hover:bg-primary/[0.04]
+                    "
                   >
                     <div
                       className="
-                          flex
-                          h-10
-                          w-10
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-lg
-                          border
-                          border-border/70
-                          bg-background/60
-                          text-primary
-                          transition-all
-                          duration-300
-                          group-hover:border-primary/40
-                          group-hover:bg-primary/10
-                        "
+                        flex
+                        h-10
+                        w-10
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-lg
+                        border
+                        border-border/70
+                        bg-background/60
+                        text-primary
+                        transition-all
+                        duration-300
+                        group-hover:border-primary/40
+                        group-hover:bg-primary/10
+                      "
                     >
                       <Icon className="h-[18px] w-[18px]" />
                     </div>
@@ -279,17 +265,17 @@ export function Contact() {
                     {href && (
                       <ArrowUpRight
                         className="
-                            ml-auto
-                            h-4
-                            w-4
-                            shrink-0
-                            text-foreground/30
-                            transition-all
-                            duration-300
-                            group-hover:-translate-y-0.5
-                            group-hover:translate-x-0.5
-                            group-hover:text-primary
-                          "
+                          ml-auto
+                          h-4
+                          w-4
+                          shrink-0
+                          text-foreground/30
+                          transition-all
+                          duration-300
+                          group-hover:-translate-y-0.5
+                          group-hover:translate-x-0.5
+                          group-hover:text-primary
+                        "
                       />
                     )}
                   </motion.div>
@@ -323,7 +309,11 @@ export function Contact() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="
               relative
               overflow-hidden
@@ -368,6 +358,7 @@ export function Contact() {
                       transition={{
                         duration: 0.4,
                         delay: 0.12 + index * 0.06,
+                        ease: [0.22, 1, 0.36, 1],
                       }}
                       whileHover={{ x: 4 }}
                       className="

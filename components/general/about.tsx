@@ -96,6 +96,7 @@ export function About() {
       >
         {/* ==================================================
             SUBTLE BACKGROUND GLOW
+            Desktop only — avoids expensive blur on mobile
         ================================================== */}
 
         <motion.div
@@ -104,11 +105,13 @@ export function About() {
             absolute
             -right-32
             -top-32
+            hidden
             h-72
             w-72
             rounded-full
             bg-primary/[0.05]
             blur-[100px]
+            md:block
           "
           animate={{
             scale: [1, 1.15, 1],
@@ -196,10 +199,8 @@ export function About() {
                   font-medium
                   leading-8
                   tracking-tight
-                 
                   sm:text-xl
                   sm:leading-9
-                 
                 "
               >
                 My name is Soham. I’m interested in full-stack web development
@@ -227,16 +228,22 @@ export function About() {
                 py-6
               "
             >
-              {/* Image glow */}
+              {/* ==================================================
+                  IMAGE GLOW
+                  Desktop only
+              ================================================== */}
+
               <motion.div
                 className="
                   pointer-events-none
                   absolute
+                  hidden
                   h-64
                   w-64
                   rounded-full
                   bg-primary/[0.07]
                   blur-[80px]
+                  md:block
                 "
                 animate={{
                   scale: [1, 1.12, 1],
@@ -249,7 +256,11 @@ export function About() {
                 }}
               />
 
-              {/* Floating image */}
+              {/* ==================================================
+                  FLOATING IMAGE
+                  Floating animation only on desktop
+              ================================================== */}
+
               <motion.div
                 animate={{
                   y: [0, -8, 0],
@@ -280,7 +291,7 @@ export function About() {
                     w-full
                     rounded-lg
                     object-contain
-                    transition-all
+                    transition-[filter]
                     duration-700
                     group-hover:drop-shadow-[0_0_25px_hsl(var(--primary)/0.12)]
                   "
@@ -289,10 +300,6 @@ export function About() {
             </motion.div>
           </div>
         </CardContent>
-
-        {/* ==================================================
-            SMALL CORNER ACCENT
-        ================================================== */}
       </Card>
     </motion.div>
   );

@@ -28,8 +28,8 @@ const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
     },
   },
 };
@@ -37,13 +37,13 @@ const containerVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 20,
+    y: 18,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.65,
+      duration: 0.55,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -51,9 +51,9 @@ const itemVariants: Variants = {
 
 const floatVariants: Variants = {
   animate: {
-    y: [0, -10, 0],
+    y: [0, -8, 0],
     transition: {
-      duration: 4,
+      duration: 5,
       repeat: Infinity,
       ease: "easeInOut",
     },
@@ -77,9 +77,9 @@ export function Hero() {
     let index = 0;
 
     const timer = setInterval(() => {
-      setTypedText(fullText.slice(0, index + 1));
+      index += 1;
 
-      index++;
+      setTypedText(fullText.slice(0, index));
 
       if (index >= fullText.length) {
         clearInterval(timer);
@@ -118,18 +118,29 @@ export function Hero() {
         "
       />
 
-      {/* Left ambient glow */}
+      {/* ======================================================
+          LEFT AMBIENT GLOW
+
+          Static on small/mid screens.
+          Animated only on large screens.
+      ====================================================== */}
+
       <motion.div
         className="
           pointer-events-none
           absolute
           -left-40
           top-1/4
-          h-[450px]
-          w-[450px]
+          h-[300px]
+          w-[300px]
           rounded-full
-          bg-primary/[0.06]
-          blur-[120px]
+          bg-primary/[0.05]
+          blur-[70px]
+
+          lg:h-[450px]
+          lg:w-[450px]
+          lg:bg-primary/[0.06]
+          lg:blur-[120px]
         "
         animate={{
           x: [0, 45, 0],
@@ -143,18 +154,28 @@ export function Hero() {
         }}
       />
 
-      {/* Image-side glow */}
+      {/* ======================================================
+          IMAGE-SIDE GLOW
+
+          Smaller + less expensive on mobile.
+      ====================================================== */}
+
       <motion.div
         className="
           pointer-events-none
           absolute
           right-[5%]
           top-[30%]
-          h-[350px]
-          w-[350px]
+          h-[240px]
+          w-[240px]
           rounded-full
-          bg-primary/[0.055]
-          blur-[110px]
+          bg-primary/[0.04]
+          blur-[70px]
+
+          lg:h-[350px]
+          lg:w-[350px]
+          lg:bg-primary/[0.055]
+          lg:blur-[110px]
         "
         animate={{
           scale: [1, 1.12, 1],
@@ -216,8 +237,9 @@ export function Hero() {
           px-4
           pb-16
           pt-8
+
           sm:px-6
-          sm:pt-8
+
           lg:grid-cols-[1.05fr_0.95fr]
           lg:gap-10
           lg:px-8
@@ -230,6 +252,7 @@ export function Hero() {
 
         <div className="relative">
           {/* Terminal header */}
+
           <motion.div
             variants={itemVariants}
             className="
@@ -286,17 +309,18 @@ export function Hero() {
           <motion.h1
             variants={itemVariants}
             className="
-    text-[clamp(4rem,7.5vw,6.5rem)]
-    font-bold
-    leading-[1]
-    tracking-[-0.035em]
-    text-foreground
-  "
+              text-[clamp(4rem,7.5vw,6.5rem)]
+              font-bold
+              leading-[1]
+              tracking-[-0.035em]
+              text-foreground
+            "
           >
             {typedText}
           </motion.h1>
 
-          {/* Underline grows to the width of the name */}
+          {/* Underline */}
+
           <motion.div
             initial={{
               width: 0,
@@ -331,11 +355,9 @@ export function Hero() {
             <p
               className="
                 font-mono
-                
+                text-xl
                 leading-7
                 tracking-[-0.01em]
-                
-               text-xl
                 sm:leading-8
               "
             >
@@ -356,6 +378,7 @@ export function Hero() {
             className="mt-8 flex flex-wrap gap-3"
           >
             {/* Explore */}
+
             <Link
               href="#projects"
               className="
@@ -394,7 +417,6 @@ export function Hero() {
                 "
               />
 
-              {/* Shine */}
               <span
                 className="
                   pointer-events-none
@@ -412,6 +434,7 @@ export function Hero() {
             </Link>
 
             {/* Connect */}
+
             <Link
               href="#contact"
               className="
@@ -541,17 +564,28 @@ export function Hero() {
             lg:-translate-y-1
           "
         >
-          {/* Main glow */}
+          {/* ==================================================
+              MAIN GLOW
+
+              Smaller on mobile.
+          ================================================== */}
+
           <motion.div
             className="
               absolute
-              h-[340px]
-              w-[340px]
+              h-[280px]
+              w-[280px]
               rounded-full
-              bg-primary/[0.08]
-              blur-[90px]
-              sm:h-[460px]
-              sm:w-[460px]
+              bg-primary/[0.06]
+              blur-[65px]
+
+              sm:h-[360px]
+              sm:w-[360px]
+
+              lg:h-[460px]
+              lg:w-[460px]
+              lg:bg-primary/[0.08]
+              lg:blur-[90px]
             "
             animate={{
               scale: [1, 1.08, 1],
@@ -564,7 +598,13 @@ export function Hero() {
             }}
           />
 
-          {/* Outer orbit */}
+          {/* ==================================================
+              OUTER ORBIT
+
+              Hidden on small/mid screens.
+              This is one of the more expensive animations.
+          ================================================== */}
+
           <motion.div
             animate={{
               rotate: 360,
@@ -576,18 +616,24 @@ export function Hero() {
             }}
             className="
               absolute
-              h-[320px]
-              w-[320px]
+              hidden
+              h-[440px]
+              w-[440px]
               rounded-full
               border
               border-dashed
               border-primary/20
-              sm:h-[440px]
-              sm:w-[440px]
+
+              lg:block
             "
           />
 
-          {/* Second orbit */}
+          {/* ==================================================
+              SECOND ORBIT
+
+              Hidden below lg.
+          ================================================== */}
+
           <motion.div
             animate={{
               rotate: -360,
@@ -599,13 +645,14 @@ export function Hero() {
             }}
             className="
               absolute
-              h-[360px]
-              w-[360px]
+              hidden
+              h-[490px]
+              w-[490px]
               rounded-full
               border
               border-primary/10
-              sm:h-[490px]
-              sm:w-[490px]
+
+              lg:block
             "
           />
 
@@ -629,36 +676,43 @@ export function Hero() {
               relative
               h-72
               w-72
+
               sm:h-[360px]
               sm:w-[360px]
+
               lg:h-[410px]
               lg:w-[410px]
             "
           >
             {/* Outer frame */}
+
             <div className="absolute -inset-3 border border-primary/20" />
 
             {/* Corner accents */}
+
             <div className="absolute -left-5 -top-5 h-8 w-8 border-l-2 border-t-2 border-primary" />
 
             <div className="absolute -bottom-5 -right-5 h-8 w-8 border-b-2 border-r-2 border-primary" />
 
             {/* Image */}
+
             <div className="group relative h-full w-full overflow-hidden rounded-full border-[5px] border-background shadow-2xl">
               <Image
                 src={MyImage}
                 alt="Soham"
                 fill
                 priority
+                sizes="(max-width: 640px) 288px, (max-width: 1024px) 360px, 410px"
                 className="
                   object-cover
                   transition-transform
-                  duration-1000
+                  duration-700
                   group-hover:scale-105
                 "
               />
 
-              {/* Very subtle overlay */}
+              {/* Overlay */}
+
               <div
                 className="
                   pointer-events-none
@@ -672,16 +726,24 @@ export function Hero() {
                 "
               />
 
-              {/* Moving scanline */}
+              {/* ==================================================
+                  SCANLINE
+
+                  Hidden on small/mid screens.
+              ================================================== */}
+
               <motion.div
                 className="
                   pointer-events-none
                   absolute
                   inset-x-0
                   top-0
+                  hidden
                   h-px
                   bg-primary/60
                   shadow-[0_0_12px_hsl(var(--primary)/0.6)]
+
+                  lg:block
                 "
                 animate={{
                   top: ["0%", "100%"],
@@ -726,7 +788,10 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Side label */}
+          {/* ==================================================
+              SIDE LABEL
+          ================================================== */}
+
           <motion.div
             initial={{
               opacity: 0,
@@ -754,6 +819,7 @@ export function Hero() {
               uppercase
               tracking-[0.2em]
               text-foreground/50
+
               lg:block
             "
           >
@@ -794,6 +860,7 @@ export function Hero() {
           uppercase
           tracking-[0.2em]
           text-foreground/45
+
           md:flex
         "
       >

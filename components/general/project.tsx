@@ -42,11 +42,12 @@ const containerVariants: Variants = {
   hidden: {
     opacity: 0,
   },
+
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
     },
   },
 };
@@ -54,13 +55,14 @@ const containerVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 25,
+    y: 20,
   },
+
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -69,13 +71,14 @@ const itemVariants: Variants = {
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 35,
+    y: 25,
   },
+
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.55,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -98,6 +101,7 @@ const projects = [
     description:
       "Next.js · React.js · Prisma · Neon · Stripe · Tailwind CSS · Shadcn UI · Inngest · Arcjet",
   },
+
   {
     href: "https://axon-roan.vercel.app",
     image: axon,
@@ -110,6 +114,7 @@ const projects = [
     description:
       "Next.js · React.js · Prisma · Neon · Tailwind CSS · Shadcn UI · Gemini · Inngest · Better Auth",
   },
+
   {
     href: "https://v0-ai-chat-with-file-processing-rte.vercel.app/",
     image: FileAnalyzer,
@@ -143,13 +148,20 @@ function ProjectCard({
 }) {
   return (
     <motion.div variants={cardVariants}>
-      <Link href={href} target="_blank" rel="noopener noreferrer">
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full"
+      >
         <motion.div
-          whileHover={{ y: -7 }}
+          whileHover={{
+            y: -5,
+          }}
           transition={{
             type: "spring",
             stiffness: 300,
-            damping: 22,
+            damping: 24,
           }}
           className="
             group
@@ -157,17 +169,16 @@ function ProjectCard({
             flex
             h-full
             w-full
-            max-w-md
             flex-col
             overflow-hidden
             rounded-xl
             border
             border-border/70
             bg-background/40
-            backdrop-blur-sm
             transition-colors
-            duration-500
+            duration-300
             hover:border-primary/60
+            md:max-w-md
           "
         >
           {/* ==================================================
@@ -185,9 +196,9 @@ function ProjectCard({
                 w-full
                 object-cover
                 transition-transform
-                duration-700
+                duration-500
                 ease-out
-                group-hover:scale-[1.045]
+                group-hover:scale-[1.035]
               "
             />
 
@@ -201,18 +212,17 @@ function ProjectCard({
                 flex
                 h-9
                 w-9
-                translate-y-2
+                translate-y-1
                 items-center
                 justify-center
                 rounded-full
                 border
                 border-white/20
-                bg-background/70
+                bg-background/80
                 text-foreground
                 opacity-0
-                backdrop-blur-md
                 transition-all
-                duration-500
+                duration-300
                 group-hover:translate-y-0
                 group-hover:opacity-100
               "
@@ -271,8 +281,8 @@ function ProjectCard({
                   text-xs
                   font-medium
                   text-primary
-                  transition-all
-                  duration-300
+                  transition-colors
+                  duration-200
                   group-hover:border-primary/40
                 "
               >
@@ -295,8 +305,8 @@ function ProjectCard({
                   text-xs
                   font-medium
                   text-primary
-                  transition-all
-                  duration-300
+                  transition-colors
+                  duration-200
                   group-hover:border-primary/40
                 "
               >
@@ -322,7 +332,7 @@ export function MyProjects() {
       whileInView="visible"
       viewport={{
         once: true,
-        amount: 0.15,
+        amount: 0.1,
       }}
       variants={containerVariants}
     >
@@ -336,7 +346,7 @@ export function MyProjects() {
           border-border/70
           bg-transparent
           transition-colors
-          duration-500
+          duration-300
           hover:border-primary/50
         "
       >
@@ -403,7 +413,15 @@ export function MyProjects() {
         ================================================== */}
 
         <CardContent className="pt-6">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-5
+              md:grid-cols-2
+              xl:grid-cols-3
+            "
+          >
             {projects.map((project) => (
               <ProjectCard key={project.href} {...project} />
             ))}
@@ -415,10 +433,7 @@ export function MyProjects() {
         ================================================== */}
 
         <motion.div variants={itemVariants} className="mx-6 mb-6">
-          <motion.div
-            transition={{
-              duration: 0.3,
-            }}
+          <div
             className="
               group/stack
               relative
@@ -433,97 +448,63 @@ export function MyProjects() {
               border-primary/20
               bg-background/30
               p-5
-              backdrop-blur-sm
               md:justify-around
               md:gap-2
             "
           >
             {/* ==================================================
-                AMBIENT MOVING GLOW
+                STATIC AMBIENT GLOW
             ================================================== */}
 
-            <motion.div
+            <div
               className="
                 pointer-events-none
                 absolute
-                -left-32
+                left-1/2
                 top-1/2
                 h-40
                 w-40
+                -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
-                bg-primary/[0.08]
-                blur-[70px]
+                bg-primary/[0.06]
+                blur-[60px]
               "
-              animate={{
-                x: [0, 180, 360, 180, 0],
-                opacity: [0.5, 0.8, 0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 12,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
             />
 
             {/* ==================================================
-                MOVING LIGHT SWEEP
+                SUBTLE STATIC GRID
             ================================================== */}
 
-            <motion.div
-              className="
-                pointer-events-none
-                absolute
-                -left-[30%]
-                top-0
-                h-full
-                w-[22%]
-                skew-x-[-20deg]
-                bg-gradient-to-r
-                from-transparent
-                via-primary/[0.12]
-                to-transparent
-                blur-md
-              "
-              animate={{
-                left: ["-30%", "120%"],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                repeatDelay: 2,
-                ease: "easeInOut",
-              }}
-            />
-
-            {/* ==================================================
-                SUBTLE MOVING GRID
-            ================================================== */}
-
-            <motion.div
+            <div
               className="
                 pointer-events-none
                 absolute
                 inset-0
-                opacity-[0.12]
+                opacity-[0.10]
                 [background-image:linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)]
                 [background-size:32px_32px]
               "
-              animate={{
-                backgroundPosition: ["0px 0px", "32px 32px"],
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "linear",
-              }}
             />
 
             {/* ==================================================
                 LOGOS
             ================================================== */}
 
-            <div className="relative z-10 flex w-full flex-wrap items-center justify-center gap-5 md:justify-around md:gap-2">
+            <div
+              className="
+                relative
+                z-10
+                flex
+                w-full
+                flex-wrap
+                items-center
+                justify-center
+                gap-5
+                md:justify-around
+                md:gap-2
+              "
+            >
               {[
                 NextJsLogo,
                 ReactLogo,
@@ -539,7 +520,7 @@ export function MyProjects() {
                   key={index}
                   initial={{
                     opacity: 0,
-                    scale: 0.8,
+                    scale: 0.9,
                   }}
                   whileInView={{
                     opacity: 1,
@@ -549,12 +530,12 @@ export function MyProjects() {
                     once: true,
                   }}
                   transition={{
-                    delay: index * 0.07,
-                    duration: 0.4,
+                    delay: index * 0.04,
+                    duration: 0.3,
                   }}
                   whileHover={{
-                    y: -4,
-                    scale: 1.08,
+                    y: -3,
+                    scale: 1.05,
                   }}
                   className={index === 8 ? "hidden md:block" : ""}
                 >
@@ -562,7 +543,7 @@ export function MyProjects() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </Card>
     </motion.div>

@@ -55,7 +55,10 @@ export function Certificate() {
         hover:border-primary/50
       "
     >
-      {/* Background grid */}
+      {/* ==================================================
+          BACKGROUND GRID
+      ================================================== */}
+
       <div
         className="
           pointer-events-none
@@ -67,18 +70,24 @@ export function Certificate() {
         "
       />
 
-      {/* Ambient glow */}
+      {/* ==================================================
+          AMBIENT GLOW
+          Desktop only to reduce mobile GPU load
+      ================================================== */}
+
       <motion.div
         className="
           pointer-events-none
           absolute
           -right-32
           top-0
+          hidden
           h-[350px]
           w-[350px]
           rounded-full
           bg-primary/[0.07]
           blur-[110px]
+          md:block
         "
         animate={{
           x: [0, -45, 0],
@@ -98,11 +107,13 @@ export function Certificate() {
           absolute
           -bottom-40
           left-1/4
+          hidden
           h-[280px]
           w-[280px]
           rounded-full
           bg-primary/[0.045]
           blur-[100px]
+          md:block
         "
         animate={{
           x: [0, 60, 0],
@@ -115,7 +126,10 @@ export function Certificate() {
         }}
       />
 
-      {/* Header */}
+      {/* ==================================================
+          HEADER
+      ================================================== */}
+
       <CardHeader className="relative z-10 space-y-4 pb-6">
         <CardTitle
           className="
@@ -164,7 +178,10 @@ export function Certificate() {
 
       <Separator />
 
-      {/* Certificates */}
+      {/* ==================================================
+          CERTIFICATES
+      ================================================== */}
+
       <CardContent className="relative z-10 p-5 md:p-8">
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {certificates.map(({ image, title, number }, index) => (
@@ -192,7 +209,10 @@ export function Certificate() {
               }}
               className="group relative"
             >
-              {/* Glow */}
+              {/* ==================================================
+                  CARD GLOW
+              ================================================== */}
+
               <div
                 className="
                   pointer-events-none
@@ -208,7 +228,10 @@ export function Certificate() {
                 "
               />
 
-              {/* Card */}
+              {/* ==================================================
+                  CARD
+              ================================================== */}
+
               <div
                 className="
                   relative
@@ -217,14 +240,18 @@ export function Certificate() {
                   border
                   border-border/70
                   bg-background/50
-                  backdrop-blur-sm
+                  backdrop-blur-none
                   transition-all
                   duration-500
                   group-hover:border-primary/50
                   group-hover:bg-background/70
+                  md:backdrop-blur-sm
                 "
               >
-                {/* Top metadata */}
+                {/* ==================================================
+                    TOP METADATA
+                ================================================== */}
+
                 <div
                   className="
                     flex
@@ -253,7 +280,10 @@ export function Certificate() {
                   </span>
                 </div>
 
-                {/* Certificate image */}
+                {/* ==================================================
+                    CERTIFICATE IMAGE
+                ================================================== */}
+
                 <div
                   className="
                     relative
@@ -286,7 +316,10 @@ export function Certificate() {
                     "
                   />
 
-                  {/* Subtle image gradient */}
+                  {/* ==================================================
+                      SUBTLE IMAGE GRADIENT
+                  ================================================== */}
+
                   <div
                     className="
                       pointer-events-none
@@ -299,7 +332,10 @@ export function Certificate() {
                     "
                   />
 
-                  {/* Hover shine */}
+                  {/* ==================================================
+                      HOVER SHINE
+                  ================================================== */}
+
                   <div
                     className="
                       pointer-events-none
@@ -315,7 +351,10 @@ export function Certificate() {
                     "
                   />
 
-                  {/* Corner arrow */}
+                  {/* ==================================================
+                      CORNER ARROW
+                  ================================================== */}
+
                   <div
                     className="
                       absolute
@@ -332,17 +371,21 @@ export function Certificate() {
                       bg-black/30
                       text-white/70
                       opacity-0
-                      backdrop-blur-md
+                      backdrop-blur-none
                       transition-all
                       duration-300
                       group-hover:opacity-100
+                      md:backdrop-blur-md
                     "
                   >
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>
 
-                {/* Footer */}
+                {/* ==================================================
+                    FOOTER
+                ================================================== */}
+
                 <div className="flex items-center justify-between gap-3 p-4">
                   <div className="min-w-0">
                     <p
@@ -380,7 +423,10 @@ export function Certificate() {
                   </div>
                 </div>
 
-                {/* Bottom accent */}
+                {/* ==================================================
+                    BOTTOM ACCENT
+                ================================================== */}
+
                 <div
                   className="
                     absolute

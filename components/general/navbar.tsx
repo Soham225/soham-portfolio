@@ -44,23 +44,23 @@ const navItems = [
 export function NavBar() {
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -12 }}
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.5,
+        duration: 0.4,
         ease: "easeOut",
       }}
       className="
-        flex
-        items-center
-        justify-between
-        pb-2
-        border-b
-        border-b-primary/20
         sticky
         top-0
         z-50
+        flex
+        items-center
+        justify-between
+        border-b
+        border-b-primary/20
         bg-background
+        pb-2
       "
     >
       {/* ============================================================
@@ -68,59 +68,57 @@ export function NavBar() {
       ============================================================ */}
 
       <motion.h1
-        initial={{ opacity: 0, x: -15 }}
+        initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{
-          duration: 0.6,
-          delay: 0.1,
+          duration: 0.45,
+          delay: 0.05,
           ease: "easeOut",
         }}
-        className="text-3xl font-bold flex items-center justify-center gap-2"
+        className="
+          flex
+          items-center
+          justify-center
+          gap-2
+          text-3xl
+          font-bold
+        "
       >
+        {/* Logo icon */}
         <motion.div
           whileHover={{
-            rotate: 10,
-            scale: 1.08,
+            rotate: 8,
+            scale: 1.06,
           }}
           transition={{
             type: "spring",
             stiffness: 300,
-            damping: 15,
+            damping: 18,
           }}
           className="
             relative
             rounded-full
-            p-2
-            bg-card
-            text-primary
             border
             border-primary
+            bg-card
+            p-2
+            text-primary
           "
         >
-          {/* subtle pulse */}
-          <motion.div
-            className="
-              absolute
-              inset-0
-              rounded-full
-              border
-              border-primary
-            "
-            animate={{
-              scale: [1, 1.25, 1],
-              opacity: [0.35, 0, 0.35],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-
           <Code2 size={20} className="relative z-10" />
         </motion.div>
 
-        <span className="font-semibold font-sans text-[1rem] sm:text-2xl underline underline-offset-8">
+        {/* Name */}
+        <span
+          className="
+            font-sans
+            text-[1rem]
+            font-semibold
+            underline
+            underline-offset-8
+            sm:text-2xl
+          "
+        >
           SOHAM
         </span>
       </motion.h1>
@@ -129,67 +127,54 @@ export function NavBar() {
           RIGHT SIDE
       ============================================================ */}
 
-      <div className="flex items-center gap-6 px-4 py-2 rounded-lg">
+      <div
+        className="
+          flex
+          items-center
+          gap-3
+          rounded-lg
+          px-2
+          py-2
+          sm:gap-4
+          sm:px-4
+        "
+      >
         {/* ========================================================
             DESKTOP NAV
         ======================================================== */}
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            delay: 0.25,
-          }}
-          className="hidden md:flex"
-        >
-          {navItems.map((item, index) => (
-            <motion.div
+        <div className="hidden md:flex">
+          {navItems.map((item) => (
+            <Link
               key={item.href}
-              initial={{
-                opacity: 0,
-                y: -6,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.4,
-                delay: 0.25 + index * 0.07,
-              }}
-              whileHover={{
-                y: -2,
-              }}
+              href={item.href}
+              className={cn(
+                buttonVariants({
+                  variant: "ghost",
+                }),
+                "group relative font-mono font-semibold",
+              )}
             >
-              <Link
-                href={item.href}
-                className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "group relative font-semibold font-mono",
-                )}
-              >
-                {item.label}
+              {item.label}
 
-                {/* tiny animated underline */}
-                <span
-                  className="
-                    absolute
-                    bottom-1
-                    left-1/2
-                    h-[1px]
-                    w-0
-                    -translate-x-1/2
-                    bg-primary
-                    transition-all
-                    duration-300
-                    group-hover:w-1/2
-                  "
-                />
-              </Link>
-            </motion.div>
+              {/* Simple hover underline */}
+              <span
+                className="
+                  absolute
+                  bottom-1
+                  left-1/2
+                  h-px
+                  w-0
+                  -translate-x-1/2
+                  bg-primary
+                  transition-all
+                  duration-200
+                  group-hover:w-1/2
+                "
+              />
+            </Link>
           ))}
-        </motion.div>
+        </div>
 
         {/* ========================================================
             RESUME
@@ -197,7 +182,7 @@ export function NavBar() {
 
         <motion.div
           whileHover={{
-            scale: 1.03,
+            scale: 1.02,
           }}
           whileTap={{
             scale: 0.97,
@@ -205,63 +190,31 @@ export function NavBar() {
           className="
             relative
             inline-block
-            rounded-xl
             overflow-hidden
-            p-[1.5px]
+            rounded-xl
             border
+            border-primary/50
+            p-px
           "
         >
-          {/* rotating glow */}
-          <div
-            className="
-              absolute
-              inset-0
-              animate-[spin_5s_linear_infinite]
-              bg-conic
-              from-primary
-              via-transparent
-              via-transparent
-              to-primary
-            "
-          />
-
-          {/* secondary moving glow */}
-          <motion.div
-            className="
-              absolute
-              inset-0
-              rounded-xl
-              bg-primary/20
-              blur-md
-            "
-            animate={{
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-
           <Link
             href="/view-resume"
             className="
               group
               relative
-              text-sm
               flex
               items-center
               rounded-xl
               bg-background
-              p-2
-              sm:px-7
+              px-3
               py-2
               font-mono
+              text-sm
               font-semibold
               transition-colors
-              duration-300
+              duration-200
               hover:text-primary
+              sm:px-7
             "
           >
             Resume
@@ -273,10 +226,9 @@ export function NavBar() {
                 rounded-full
                 bg-primary
                 opacity-0
-                transition-all
-                duration-300
+                transition-opacity
+                duration-200
                 group-hover:opacity-100
-                group-hover:scale-150
               "
             />
           </Link>
@@ -287,8 +239,12 @@ export function NavBar() {
         ======================================================== */}
 
         <motion.div
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
+          whileHover={{
+            scale: 1.05,
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
           transition={{
             type: "spring",
             stiffness: 350,
@@ -306,12 +262,8 @@ export function NavBar() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <motion.button
-                whileHover={{
-                  scale: 1.08,
-                  rotate: 3,
-                }}
                 whileTap={{
-                  scale: 0.9,
+                  scale: 0.92,
                 }}
                 transition={{
                   type: "spring",
@@ -340,9 +292,7 @@ export function NavBar() {
                     href="#about"
                     className="transition-colors duration-200 hover:text-primary"
                   >
-                    <span>
-                      <User />
-                    </span>
+                    <User />
                     <span>About</span>
                   </Link>
                 </DropdownMenuItem>
@@ -354,9 +304,7 @@ export function NavBar() {
                     href="#projects"
                     className="transition-colors duration-200 hover:text-primary"
                   >
-                    <span>
-                      <FolderClosed />
-                    </span>
+                    <FolderClosed />
                     <span>Projects</span>
                   </Link>
                 </DropdownMenuItem>
@@ -368,9 +316,7 @@ export function NavBar() {
                     href="#certificate"
                     className="transition-colors duration-200 hover:text-primary"
                   >
-                    <span>
-                      <ShieldCheck />
-                    </span>
+                    <ShieldCheck />
                     <span>Certificates</span>
                   </Link>
                 </DropdownMenuItem>
@@ -382,9 +328,7 @@ export function NavBar() {
                     href="#contact"
                     className="transition-colors duration-200 hover:text-primary"
                   >
-                    <span>
-                      <Contact />
-                    </span>
+                    <Contact />
                     <span>Contact</span>
                   </Link>
                 </DropdownMenuItem>
